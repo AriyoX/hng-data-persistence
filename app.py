@@ -5,8 +5,12 @@ import requests
 from datetime import datetime, timezone
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
+from dotenv import load_dotenv
 
 app = Flask(__name__)
+
+# Load environment variables from .env for local Neon database usage.
+load_dotenv()
 
 # Database config
 DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///profiles.db")
